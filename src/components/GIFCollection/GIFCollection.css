@@ -1,0 +1,52 @@
+.gif-collection {
+  width: 50%;
+  float: right;
+  background-color: white;
+  min-height: calc(100vh - 84px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid rgb(211, 211, 211);
+}
+
+.gif-collection .title {
+  font-size: 1.5em;
+  margin: 1em 0em 1em 3.5em;
+  text-transform: uppercase;
+}
+
+.gifs div h1 {
+  font-size: 1.2em;
+}
+
+.gifs .my-card {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  text-align: center;
+  float: left;
+}
+
+.gifs .my-card .img-here {
+  width: 150px;
+  height: 150px;
+  border: 2px solid black;
+  margin: auto;
+}
+
+.gif-collection button {
+  max-width: 300px;
+  margin: 0.5em auto;
+  text-transform: uppercase;
+  border: 0px;
+  font-weight: 500;
+  padding: 0.3em 0.6em;
+}
+
+.gif-collection p {
+  text-align: center;
+}
+
+.gif-collection p span {
+  text-transform: uppercase;
+}

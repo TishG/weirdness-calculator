@@ -4,6 +4,8 @@
 
 body,
 html {
+  min-width: 1328px;
+  min-height: 100vh;
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
