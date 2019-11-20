@@ -15,7 +15,7 @@
   font-size: 2em;
 }
 
-.img-will-go-here {
+img {
   width: 200px;
   height: 200px;
   border: 2px solid black;
@@ -24,6 +24,10 @@
 
 .gif-result {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .gif-result h1 {
