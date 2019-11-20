@@ -8,15 +8,18 @@ import { store } from "./redux/store";
 //Components
 import Navbar from "./components/Navbar/Navbar";
 import Search from "./components/Search/Search";
+import Result from "./components/Result/Result";
 
 const App = () => {
   return (
     <Provider store={store}>
-      <div className="App">
+      <div className="app">
         <Navbar />
-        <main>
+        <section className="col-6 section-left">
           <Search />
-        </main>
+          <Result />
+        </section>
+        <section>blah</section>
       </div>
     </Provider>
   );

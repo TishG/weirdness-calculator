@@ -1,8 +1,13 @@
 .search {
   float: left;
   height: 40vh;
-  border-bottom: 1px solid rgb(211, 211, 211);
-  border-right: 1px solid rgb(211, 211, 211);
+  padding: 1em;
+  margin: 0;
+  width: 100%;
+}
+
+.search p {
+  width: 100%;
 }
 
 .search label {
