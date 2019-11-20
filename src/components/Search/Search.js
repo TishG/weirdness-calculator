@@ -3,7 +3,7 @@ import "./Search.css";
 
 const Search = () => {
   return (
-    <div className="search container col-6">
+    <div className="search container">
       <p>
         Find out how weird you are by selecting the GIFs that make you laugh.
         We'll show you the least weird ones to start, but you can move the
