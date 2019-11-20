@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import { fetchGIF } from "../../redux/actions";
 import "./Search.css";
 
-const Search = () => {
+const Search = ({ fetchGIF, result }) => {
+  const [value, setValue] = useState("");
+  const [weirdness, setWeirdness] = useState(10);
+  console.log(value);
+  const handleSubmit = e => {
+    e.preventDefault();
+    fetchGIF(value, weirdness);
+  };
+
+  console.log("RESULT", result);
   return (
     <div className="search container">
       <p>
@@ -13,10 +24,15 @@ const Search = () => {
         When you find a GIF you like, press the <em>Like</em> button. Once you
         like 5 GIFs, we'll show you how wierd you are.
       </p>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="search">Search term</label>
         <div className="my-flex-row">
-          <input type="text" name="search" id="search" />
+          <input
+            type="text"
+            name="search"
+            id="search"
+            onChange={e => setValue(e.target.value)}
+          />
           <button>search</button>
         </div>
       </form>
@@ -24,4 +40,14 @@ const Search = () => {
   );
 };
 
-export default Search;
+const mapStateToProps = state => {
+  return {
+    result: state.result
+  };
+};
+
+const mapDispatchToProps = {
+  fetchGIF
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
