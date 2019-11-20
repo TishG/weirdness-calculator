@@ -1,0 +1,27 @@
+.search {
+  float: left;
+  height: 40vh;
+  border-bottom: 1px solid rgb(211, 211, 211);
+  border-right: 1px solid rgb(211, 211, 211);
+}
+
+.search label {
+  display: block;
+}
+.search .my-flex-row {
+  display: flex;
+  flex-direction: row;
+  height: 35px;
+}
+
+.search input {
+  width: 250px;
+}
+.search button {
+  text-transform: uppercase;
+  border-radius: 0px 2px 2px 0px;
+  border: 0px;
+  background-color: rgb(65, 105, 225);
+  color: rgb(255, 255, 255);
+  width: 100px;
+}
