@@ -9,6 +9,7 @@ import { store } from "./redux/store";
 import Navbar from "./components/Navbar/Navbar";
 import Search from "./components/Search/Search";
 import Result from "./components/Result/Result";
+import GIFCollection from "./components/GIFCollection/GIFCollection";
 
 const App = () => {
   return (
@@ -19,7 +20,7 @@ const App = () => {
           <Search />
           <Result />
         </section>
-        <section>blah</section>
+        <GIFCollection />
       </div>
     </Provider>
   );
