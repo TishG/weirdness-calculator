@@ -19,7 +19,7 @@ const Result = () => {
       </div>
       <input
         type="range"
-        class="custom-range"
+        className="custom-range"
         min="0"
         max="10"
         step="1"
@@ -27,7 +27,7 @@ const Result = () => {
         id="customRange2"
         onChange={e => handleChange(e)}
       ></input>
-      <label for="wierdness">Wierdness: 0</label>
+      <label htmlFor="wierdness">Wierdness: 0</label>
     </div>
   );
 };
