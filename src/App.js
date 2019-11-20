@@ -1,16 +1,21 @@
 import React from "react";
+import "./App.css";
+
+//Redux
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
-import "./App.css";
+
+//Components
+import Navbar from "./components/Navbar/Navbar";
 
 const App = () => {
   return (
     <Provider store={store}>
       <div className="App">
-        <h1>Weirdness Calculator</h1>
+        <Navbar />
       </div>
     </Provider>
   );
-}
+};
 
 export default App;
