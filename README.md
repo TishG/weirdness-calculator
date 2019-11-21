@@ -1,6 +1,6 @@
-# Wierdness Calculator
+# Weirdness Calculator
 
-Wierdness Calculator is a front end application used to generate GIFS based on a search term and weirdness scale. Users can like GIFs and they will be added to a collection. When you have a collection of 5 GIFS, a weirdness score will be calculated based on your GIFs collection.
+Weirdness Calculator is a front end application used to generate GIFS based on a search term and weirdness scale. Users can like GIFs and they will be added to a collection. When you have a collection of 5 GIFS, a weirdness score will be calculated based on your GIFs collection.
 
 Technologies used: React, Redux, Giphy API\
 Installed Packages: redux, react-redux, redux-thunk, axios, bootstrap, ionicons, react-router-dom
