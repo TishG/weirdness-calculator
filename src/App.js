@@ -10,11 +10,13 @@ import Navbar from "./components/Navbar/Navbar";
 import Search from "./components/Search/Search";
 import Result from "./components/Result/Result";
 import GIFCollection from "./components/GIFCollection/GIFCollection";
+import Alert from "./components/Alert/Alert";
 
 const App = () => {
   return (
     <Provider store={store}>
       <div className="app">
+        <Alert />
         <Navbar />
         <section className="col-6 section-left">
           <Search />

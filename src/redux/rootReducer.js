@@ -1,7 +1,10 @@
 import {
   FETCH_GIF_REQUEST,
   FETCH_GIF_FAILURE,
-  FETCH_GIF_SUCCESS
+  FETCH_GIF_SUCCESS,
+  ADD_GIF,
+  SET_USER_MESSAGE,
+  REMOVE_GIF
 } from "./types";
 
 const initialState = {
@@ -35,6 +38,23 @@ export const rootReducer = (state = initialState, action) => {
         loading: false,
         userMessage: action.payload,
         result: []
+      };
+    case ADD_GIF:
+      return {
+        ...state,
+        gifList: [...state.gifList, state.result[0].data[0]],
+        userMessage: "Please submit a new search term"
+      };
+    case REMOVE_GIF:
+      return {
+        ...state,
+        gifList: [...state.gifList].filter(gif => gif.id != action.payload),
+        userMessage: ""
+      };
+    case SET_USER_MESSAGE:
+      return {
+        ...state,
+        userMessage: action.payload
       };
     default:
       return state;
