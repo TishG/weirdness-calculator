@@ -14,7 +14,7 @@
   width: 100%;
 }
 
-.search label {
+.search form label {
   display: block;
 }
 .search .my-flex-row {
@@ -23,12 +23,15 @@
   height: 35px;
 }
 
-.search input {
+.search form .my-flex-row input {
   width: 250px;
+  background-color: whitesmoke;
+  border-top: 1px solid rgb(211, 211, 211);
+  border-left: 1px solid rgb(211, 211, 211);
+  border-bottom: 1px solid rgb(211, 211, 211);
 }
-.search button {
+.search form .my-flex-row button {
   text-transform: uppercase;
   border-radius: 0px 2px 2px 0px;
-  border: 0px;
   width: 100px;
 }

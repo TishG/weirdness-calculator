@@ -23,7 +23,7 @@
   margin: auto;
 }
 
-.gifs-collection {
+.score-view .gifs-collection {
   min-height: 300px;
   margin: auto;
   display: flex;
@@ -33,7 +33,7 @@
   flex-wrap: nowrap;
 }
 
-.gifs-collection .gifs-collection-card {
+.score-view .gifs-collection-card {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -42,6 +42,6 @@
   margin: 0px 10px;
 }
 
-.gifs-collection-card h1 {
+.score-view .gifs-collection-card h1 {
   font-size: 1em;
 }

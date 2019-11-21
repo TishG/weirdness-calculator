@@ -3,9 +3,9 @@ import {
   FETCH_GIF_FAILURE,
   FETCH_GIF_SUCCESS,
   ADD_GIF,
-  SET_USER_MESSAGE,
   REMOVE_GIF,
-  CLEAR_GIF_LIST
+  SET_USER_MESSAGE,
+  CLEAR_GIF_LIST_AND_RESULT
 } from "./types";
 
 const initialState = {
@@ -13,8 +13,7 @@ const initialState = {
   userMessage: "",
   search: "",
   result: [],
-  gifList: [],
-  weirdnessScore: null
+  gifList: []
 };
 
 export const rootReducer = (state = initialState, action) => {
@@ -53,10 +52,11 @@ export const rootReducer = (state = initialState, action) => {
         gifList: state.gifList.filter(gif => gif.id !== action.payload),
         userMessage: ""
       };
-    case CLEAR_GIF_LIST:
+    case CLEAR_GIF_LIST_AND_RESULT:
       return {
         ...state,
-        gifList: []
+        gifList: [],
+        result: []
       };
     case SET_USER_MESSAGE:
       return {

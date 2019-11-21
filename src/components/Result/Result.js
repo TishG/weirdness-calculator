@@ -6,7 +6,7 @@ import {
   setUserMessage,
   fetchGIF,
   fetchGIFRequest
-} from "../../redux/actions";
+} from "../../redux/actionCreators";
 import "./Result.css";
 
 const Result = ({ result, loading, addGIF, gifList, setUserMessage }) => {
@@ -27,53 +27,47 @@ const Result = ({ result, loading, addGIF, gifList, setUserMessage }) => {
   const handleChange = e => {
     setWeirdness(e.target.value);
   };
-  // const renderResult = () => {
-    if (result.length && result !== undefined) {
-      const title = result[0].data[0].title;
-      const image = result[0].data[0].images.downsized_medium.url;
-      const id = result[0].data[0].id;
-      return (
-        <div className="result container">
-          <h1 className="title">Your Result</h1>
-          <div className="gif-result">
-            <h1>
-              {title} - {id}
-            </h1>
-            <img src={image} alt={title} />
-            <button className="btn btn-dark" onClick={handleClick}>
-              <ion-icon name="thumbs-up" className="thumbs-up"></ion-icon>
-            </button>
-          </div>
-          <input
-            type="range"
-            className="custom-range"
-            min="0"
-            max="10"
-            value={weirdness}
-            step="1"
-            id="weirdness"
-            onChange={e => handleChange(e)}
-          ></input>
-          <label htmlFor="wierdness">Wierdness: {weirdness}</label>
+  if (result.length && result !== undefined) {
+    const title = result[0].data[0].title;
+    const image = result[0].data[0].images.downsized_medium.url;
+    return (
+      <div className="result container">
+        <h1 className="title">Your Result</h1>
+        <div className="gif-result">
+          <h1>{title}</h1>
+          <img src={image} alt={title} />
+          <button className="btn btn-dark" onClick={handleClick}>
+            <ion-icon name="thumbs-up" className="thumbs-up"></ion-icon>
+          </button>
         </div>
-      );
-    }
-    if (result.length < 1) {
-      return (
-        <div className="result container">
-          <p>Please search for a GIF</p>
-        </div>
-      );
-    }
-    if (loading) {
-      return (
-        <div className="result container">
-          <p>Loading...</p>
-        </div>
-      );
-    }
-  // };
-  // return renderResult();
+        <input
+          type="range"
+          className="custom-range"
+          min="0"
+          max="10"
+          value={weirdness}
+          step="1"
+          id="weirdness"
+          onChange={e => handleChange(e)}
+        ></input>
+        <label htmlFor="wierdness">Wierdness: {weirdness}</label>
+      </div>
+    );
+  }
+  if (result.length < 1) {
+    return (
+      <div className="result container">
+        <p>Please search for a GIF</p>
+      </div>
+    );
+  }
+  if (loading) {
+    return (
+      <div className="result container">
+        <p>Loading...</p>
+      </div>
+    );
+  }
 };
 
 const mapStateToProps = state => {

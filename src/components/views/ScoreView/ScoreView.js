@@ -1,16 +1,23 @@
 import React from "react";
 import { connect } from "react-redux";
+import { clearGIFListAndResult } from "../../../redux/actionCreators";
 import { useHistory } from "react-router-dom";
-import { clearGIFList } from "../../../redux/actions";
 import "./ScoreView.css";
 
-const ScoreView = ({ gifList, clearGIFList }) => {
-  console.log("gifList from ScoreView", gifList);
+const ScoreView = ({ gifList, clearGIFListAndResult }) => {
   let history = useHistory();
   const handleClick = () => {
-    clearGIFList();
+    clearGIFListAndResult();
     history.push("/");
   };
+  /*
+  Pseudocode for weirdness calculation
+  const weirdnessScore = () => {
+    const weirdnessScoresArray = gifList.map(gif => gif.weirdness)
+    const total = weirdnessScoresArray.reduce((accumulator,currentValue) => accumulator + currentValue);
+    return total/5;
+  }
+  */
   return (
     <div className="score-view container">
       <h1>You scored an 8 out of 10 on the weirdness scale!</h1>
@@ -41,7 +48,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  clearGIFList
+  clearGIFListAndResult
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ScoreView);

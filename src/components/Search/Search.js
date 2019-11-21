@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { fetchGIF, fetchGIFRequest } from "../../redux/actions";
+import { fetchGIF, fetchGIFRequest } from "../../redux/actionCreators";
 import "./Search.css";
 
 const Search = ({ fetchGIF, fetchGIFRequest, result }) => {
   const [value, setValue] = useState("");
-  const [weirdness, setWeirdness] = useState(10);
+  const [weirdness] = useState(0);
   const handleSubmit = e => {
     e.preventDefault();
     fetchGIFRequest(value);
     fetchGIF(value, weirdness);
     setValue("");
   };
-
-  console.log("RESULT", result);
   return (
     <div className="search container">
       <p>

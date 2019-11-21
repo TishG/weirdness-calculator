@@ -2,7 +2,7 @@
   height: 50px;
 }
 
-.alert {
+.my-alert .alert {
   height: 50px;
   display: flex;
   justify-content: space-between;

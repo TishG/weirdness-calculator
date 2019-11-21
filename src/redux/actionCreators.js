@@ -7,7 +7,7 @@ import {
   ADD_GIF,
   SET_USER_MESSAGE,
   REMOVE_GIF,
-  CLEAR_GIF_LIST
+  CLEAR_GIF_LIST_AND_RESULT
 } from "./types";
 
 export const addGIF = () => {
@@ -23,7 +23,9 @@ export const removeGIF = id => {
   };
 };
 
-export const clearGIFList = () => ({ type: CLEAR_GIF_LIST });
+export const clearGIFListAndResult = () => ({
+  type: CLEAR_GIF_LIST_AND_RESULT
+});
 
 export const setUserMessage = message => {
   return {
@@ -47,7 +49,7 @@ export const fetchGIFFailure = err => {
   };
 };
 
-export const fetchGIF = (search, weirdness) => dispatch => {
+export const fetchGIF = (search, weirdness = 0) => dispatch => {
   dispatch(fetchGIFRequest());
   axios
     .get(
