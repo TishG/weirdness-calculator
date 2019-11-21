@@ -32,14 +32,6 @@
   text-transform: uppercase;
 }
 
-.gifs {
-  min-height: 525px;
-}
-
-.gifs div h1 {
-  font-size: 1.2em;
-}
-
 .gifs .my-card {
   display: flex;
   flex-direction: column;
@@ -48,7 +40,15 @@
   float: left;
 }
 
-.gifs .my-card .img-here {
+.gifs {
+  min-height: 525px;
+}
+
+.gifs div h1 {
+  font-size: 1.2em;
+}
+
+.my-card .img-here {
   width: 150px;
   height: 150px;
   border: 2px solid black;

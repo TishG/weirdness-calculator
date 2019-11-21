@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import { Route, Link, BrowserRouter as Router, Switch } from "react-router-dom";
 
 //Redux
 import { Provider } from "react-redux";
@@ -7,9 +7,8 @@ import { store } from "./redux/store";
 
 //Components
 import Navbar from "./components/Navbar/Navbar";
-import Search from "./components/Search/Search";
-import Result from "./components/Result/Result";
-import GIFCollection from "./components/GIFCollection/GIFCollection";
+import HomeView from "./components/views/HomeView/HomeView";
+import ScoreView from "./components/views/ScoreView/ScoreView";
 import Alert from "./components/Alert/Alert";
 
 const App = () => {
@@ -18,11 +17,13 @@ const App = () => {
       <div className="app">
         <Alert />
         <Navbar />
-        <section className="col-6 section-left">
-          <Search />
-          <Result />
-        </section>
-        <GIFCollection />
+        <Router>
+          <Switch>
+            <Route path="/" component={HomeView} exact />
+            <Route path="/score" component={ScoreView} />
+            <Route render={() => <p>Page not found</p>} />
+          </Switch>
+        </Router>
       </div>
     </Provider>
   );

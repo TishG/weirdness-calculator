@@ -1,20 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import { store } from "../../redux/store";
 import { addGIF, setUserMessage } from "../../redux/actions";
 import "./Result.css";
 
-const Result = ({
-  result,
-  loading,
-  addGIF,
-  gifList,
-  setUserMessage,
-  userMessage
-}) => {
+const Result = ({ result, loading, addGIF, gifList, setUserMessage }) => {
   const [weirdness, setWeirdness] = useState(0);
-  console.log("userMessage", userMessage);
-  console.log("gifList.length", gifList.length);
-  const handleClick = () => {
+  const handleClick = id => {
     if (gifList.length === 5) {
       return setUserMessage("You have reached the maximum limit of GIFs");
     }
@@ -24,16 +16,17 @@ const Result = ({
     setWeirdness(e.target.value);
   };
   const renderResult = () => {
-    if (result.length) {
+    if (result.length && result !== undefined) {
       const title = result[0].data[0].title;
       const image = result[0].data[0].images.downsized_medium.url;
+      const id = result[0].data[0].id;
       return (
         <div className="result container">
           <h1 className="title">Your Result</h1>
           <div className="gif-result">
             <h1>{title}</h1>
             <img src={image} alt={title} />
-            <button className="btn btn-dark" onClick={handleClick}>
+            <button className="btn btn-dark" onClick={() => handleClick(id)}>
               <ion-icon name="thumbs-up" className="thumbs-up"></ion-icon>
             </button>
           </div>
