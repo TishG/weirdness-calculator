@@ -4,12 +4,14 @@ import {
   FETCH_GIF_SUCCESS,
   ADD_GIF,
   SET_USER_MESSAGE,
-  REMOVE_GIF
+  REMOVE_GIF,
+  CLEAR_GIF_LIST
 } from "./types";
 
 const initialState = {
   loading: false,
   userMessage: "",
+  search: "",
   result: [],
   gifList: [],
   weirdnessScore: null
@@ -36,7 +38,8 @@ export const rootReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         userMessage: action.payload,
-        result: []
+        result: [],
+        search: ""
       };
     case ADD_GIF:
       return {
@@ -49,6 +52,11 @@ export const rootReducer = (state = initialState, action) => {
         ...state,
         gifList: state.gifList.filter(gif => gif.id !== action.payload),
         userMessage: ""
+      };
+    case CLEAR_GIF_LIST:
+      return {
+        ...state,
+        gifList: []
       };
     case SET_USER_MESSAGE:
       return {

@@ -6,7 +6,8 @@ import {
   FETCH_GIF_SUCCESS,
   ADD_GIF,
   SET_USER_MESSAGE,
-  REMOVE_GIF
+  REMOVE_GIF,
+  CLEAR_GIF_LIST
 } from "./types";
 
 export const addGIF = () => {
@@ -16,12 +17,14 @@ export const addGIF = () => {
 };
 
 export const removeGIF = id => {
-  console.log("REMOVING GIF", id);
   return {
     type: REMOVE_GIF,
     payload: id
   };
 };
+
+export const clearGIFList = () => ({ type: CLEAR_GIF_LIST });
+
 export const setUserMessage = message => {
   return {
     type: SET_USER_MESSAGE,
@@ -30,6 +33,7 @@ export const setUserMessage = message => {
 };
 
 export const fetchGIFRequest = () => ({ type: FETCH_GIF_REQUEST });
+
 export const fetchGIFSuccess = gif => {
   return {
     type: FETCH_GIF_SUCCESS,

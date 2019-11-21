@@ -1,12 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { clearGIFList } from "../../../redux/actions";
 import "./ScoreView.css";
 
-const ScoreView = ({ gifList }) => {
+const ScoreView = ({ gifList, clearGIFList }) => {
   console.log("gifList from ScoreView", gifList);
   let history = useHistory();
   const handleClick = () => {
+    clearGIFList();
     history.push("/");
   };
   return (
@@ -38,4 +40,8 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(ScoreView);
+const mapDispatchToProps = {
+  clearGIFList
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ScoreView);

@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { fetchGIF } from "../../redux/actions";
+import { fetchGIF, fetchGIFRequest } from "../../redux/actions";
 import "./Search.css";
 
-const Search = ({ fetchGIF, result }) => {
+const Search = ({ fetchGIF, fetchGIFRequest, result }) => {
   const [value, setValue] = useState("");
   const [weirdness, setWeirdness] = useState(10);
   const handleSubmit = e => {
     e.preventDefault();
+    fetchGIFRequest(value);
     fetchGIF(value, weirdness);
     setValue("");
   };
@@ -49,7 +50,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  fetchGIF
+  fetchGIF,
+  fetchGIFRequest
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);
