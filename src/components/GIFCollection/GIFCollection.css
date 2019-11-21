@@ -15,6 +15,27 @@
   text-transform: uppercase;
 }
 
+.gif-collection .calculate {
+  max-width: 300px;
+  margin: 0.5em auto;
+  text-transform: uppercase;
+  border: 0px;
+  font-weight: 500;
+  padding: 0.3em 0.6em;
+}
+
+.gif-collection p {
+  text-align: center;
+}
+
+.gif-collection p span {
+  text-transform: uppercase;
+}
+
+.gifs {
+  min-height: 525px;
+}
+
 .gifs div h1 {
   font-size: 1.2em;
 }
@@ -34,19 +55,14 @@
   margin: auto;
 }
 
-.gif-collection button {
-  max-width: 300px;
-  margin: 0.5em auto;
-  text-transform: uppercase;
+.gifs .remove {
+  background: transparent;
   border: 0px;
-  font-weight: 500;
-  padding: 0.3em 0.6em;
-}
-
-.gif-collection p {
-  text-align: center;
-}
-
-.gif-collection p span {
-  text-transform: uppercase;
+  padding: 0px;
+  margin: auto;
+  position: relative;
+  top: -150px;
+  right: -60px;
+  color: rgba(220, 20, 60, 0.9);
+  font-size: 1.5em;
 }

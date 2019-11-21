@@ -1,15 +1,27 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { addGIF, setUserMessage } from "../../redux/actions";
 import "./Result.css";
 
-const Result = ({ result, loading }) => {
+const Result = ({
+  result,
+  loading,
+  addGIF,
+  gifList,
+  setUserMessage,
+  userMessage
+}) => {
   const [weirdness, setWeirdness] = useState(0);
-  if (result.length) {
-    console.log(result[0].data[0].images.downsized_medium.url);
-  }
+  console.log("userMessage", userMessage);
+  console.log("gifList.length", gifList.length);
+  const handleClick = () => {
+    if (gifList.length === 5) {
+      return setUserMessage("You have reached the maximum limit of GIFs");
+    }
+    addGIF();
+  };
   const handleChange = e => {
     setWeirdness(e.target.value);
-    console.log("RANGE VALUE", weirdness);
   };
   const renderResult = () => {
     if (result.length) {
@@ -21,7 +33,7 @@ const Result = ({ result, loading }) => {
           <div className="gif-result">
             <h1>{title}</h1>
             <img src={image} alt={title} />
-            <button>
+            <button className="btn btn-dark" onClick={handleClick}>
               <ion-icon name="thumbs-up" className="thumbs-up"></ion-icon>
             </button>
           </div>
@@ -40,10 +52,18 @@ const Result = ({ result, loading }) => {
       );
     }
     if (result.length < 1) {
-      return <p>Please search for a GIF</p>;
+      return (
+        <div className="result container">
+          <p>Please search for a GIF</p>
+        </div>
+      );
     }
     if (loading) {
-      return <p>Loading...</p>;
+      return (
+        <div className="result container">
+          <p>Loading...</p>
+        </div>
+      );
     }
   };
   return renderResult();
@@ -52,8 +72,15 @@ const Result = ({ result, loading }) => {
 const mapStateToProps = state => {
   return {
     result: state.result,
-    loading: state.loading
+    loading: state.loading,
+    gifList: state.gifList,
+    userMessage: state.userMessage
   };
 };
 
-export default connect(mapStateToProps)(Result);
+const mapDispatchToProps = {
+  addGIF,
+  setUserMessage
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Result);

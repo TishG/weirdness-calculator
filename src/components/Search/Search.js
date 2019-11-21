@@ -32,8 +32,9 @@ const Search = ({ fetchGIF, result }) => {
             name="search"
             id="search"
             onChange={e => setValue(e.target.value)}
+            required
           />
-          <button>search</button>
+          <button className="btn btn-primary text-white">search</button>
         </div>
       </form>
     </div>
