@@ -1,30 +1,25 @@
 import React from "react";
 import { connect } from "react-redux";
-// import { resetUserMessage } from "../../redux/actions";
-import { setUserMessage } from "../../redux/actions";
+import { setUserMessage } from "../../redux/actionCreators";
 import "./Alert.css";
 
-// const Alert = ({ userMessage, resetUserMessage }) => {
 const Alert = ({ userMessage, setUserMessage }) => {
-  console.log(userMessage);
-  if (userMessage.length > 0) {
-    return (
-      <div className="my-alert">
-        <div className="alert alert-light text-primary" role="alert">
-          <div>{userMessage}</div>
-          <button
-            type="button"
-            className="close"
-            data-dismiss="alert"
-            aria-label="Close"
-            onClick={() => setUserMessage("")}
-          >
-            <ion-icon name="close"></ion-icon>
-          </button>
-        </div>
+  return userMessage.length > 0 ? (
+    <div className="my-alert">
+      <div className="alert alert-light text-primary" role="alert">
+        <div>{userMessage}</div>
+        <button
+          type="button"
+          className="close"
+          data-dismiss="alert"
+          aria-label="Close"
+          onClick={() => setUserMessage("")}
+        >
+          <ion-icon name="close"></ion-icon>
+        </button>
       </div>
-    );
-  } else return null;
+    </div>
+  ) : null;
 };
 
 const mapStateToProps = state => {
@@ -34,7 +29,6 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  // resetUserMessage
   setUserMessage
 };
 

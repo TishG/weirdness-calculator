@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { removeGIF, setUserMessage } from "../../redux/actions";
+import { removeGIF, setUserMessage } from "../../redux/actionCreators";
 import "./GIFCollection.css";
 
-const GIFCollection = ({ gifList, setUserMessage, removeGIF, result }) => {
-  let history = useHistory();
+const GIFCollection = ({ gifList, setUserMessage, removeGIF }) => {
+  const history = useHistory();
   const handleClick = () => {
     setUserMessage("");
     history.push("/score");
@@ -19,7 +19,7 @@ const GIFCollection = ({ gifList, setUserMessage, removeGIF, result }) => {
             <div className="my-card" key={gif.id}>
               <h1>{gif.title}</h1>
               <img
-                className="img-here"
+                className="img-url"
                 src={gif.images.downsized_medium.url}
                 alt={gif.title}
               />
@@ -53,8 +53,7 @@ const GIFCollection = ({ gifList, setUserMessage, removeGIF, result }) => {
 
 const mapStateToProps = state => {
   return {
-    gifList: state.gifList,
-    result: state.result
+    gifList: state.gifList
   };
 };
 

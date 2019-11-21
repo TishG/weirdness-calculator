@@ -32,7 +32,11 @@
   text-transform: uppercase;
 }
 
-.gifs .my-card {
+.gif-collection .gifs {
+  min-height: 525px;
+}
+
+.gif-collection .gifs .my-card {
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -40,22 +44,18 @@
   float: left;
 }
 
-.gifs {
-  min-height: 525px;
+.gif-collection .gifs div h1 {
+  font-size: 1em;
 }
 
-.gifs div h1 {
-  font-size: 1.2em;
-}
-
-.my-card .img-here {
+.gif-collection .gifs .my-card .img-url {
   width: 150px;
   height: 150px;
   border: 2px solid black;
   margin: auto;
 }
 
-.gifs .remove {
+.gif-collection .gifs .my-card .remove {
   background: transparent;
   border: 0px;
   padding: 0px;
