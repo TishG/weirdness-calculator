@@ -16,7 +16,6 @@ const initialState = {
 };
 
 export const rootReducer = (state = initialState, action) => {
-  console.log("RESULT FROM REDUCER", state.result);
   switch (action.type) {
     case FETCH_GIF_REQUEST:
       return {
@@ -48,7 +47,7 @@ export const rootReducer = (state = initialState, action) => {
     case REMOVE_GIF:
       return {
         ...state,
-        gifList: [...state.gifList].filter(gif => gif.id != action.payload),
+        gifList: state.gifList.filter(gif => gif.id !== action.payload),
         userMessage: ""
       };
     case SET_USER_MESSAGE:

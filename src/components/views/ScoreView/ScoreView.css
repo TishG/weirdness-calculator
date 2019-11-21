@@ -1,0 +1,45 @@
+.score-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+
+.score-view h1 {
+  font-size: 2em;
+  text-align: center;
+}
+
+.score-view h1:nth-of-type(2) {
+  font-size: 1.5em;
+  text-align: start;
+  margin: 3em 0em 1em 0em;
+  display: block;
+}
+
+.score-view .btn {
+  text-transform: uppercase;
+  width: 200px;
+  margin: auto;
+}
+
+.gifs-collection {
+  min-height: 300px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.gifs-collection .gifs-collection-card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  float: left;
+  max-height: 225px;
+  margin: 0px 10px;
+}
+
+.gifs-collection-card h1 {
+  font-size: 1em;
+}

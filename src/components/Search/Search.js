@@ -6,10 +6,10 @@ import "./Search.css";
 const Search = ({ fetchGIF, result }) => {
   const [value, setValue] = useState("");
   const [weirdness, setWeirdness] = useState(10);
-  console.log(value);
   const handleSubmit = e => {
     e.preventDefault();
     fetchGIF(value, weirdness);
+    setValue("");
   };
 
   console.log("RESULT", result);
@@ -32,6 +32,7 @@ const Search = ({ fetchGIF, result }) => {
             name="search"
             id="search"
             onChange={e => setValue(e.target.value)}
+            value={value}
             required
           />
           <button className="btn btn-primary text-white">search</button>
