@@ -10,6 +10,10 @@ import {
 import "./Result.css";
 
 const Result = ({ result, loading, addGIF, gifList, setUserMessage }) => {
+  console.log(loading);
+  if (result.length) {
+    console.log(result);
+  }
   const [weirdness, setWeirdness] = useState(0);
   const handleClick = () => {
     if (gifList.length === 5) {
@@ -29,13 +33,13 @@ const Result = ({ result, loading, addGIF, gifList, setUserMessage }) => {
   };
   if (result.length && result !== undefined) {
     const title = result[0].data[0].title;
-    const image = result[0].data[0].images.downsized_medium.url;
+    const imageURL = result[0].data[0].images.downsized_medium.url;
     return (
       <div className="result container">
         <h1 className="title">Your Result</h1>
         <div className="gif-result">
           <h1>{title}</h1>
-          <img src={image} alt={title} />
+          <img src={imageURL} alt={title} />
           <button className="btn btn-dark" onClick={handleClick}>
             <ion-icon name="thumbs-up" className="thumbs-up"></ion-icon>
           </button>
@@ -61,7 +65,7 @@ const Result = ({ result, loading, addGIF, gifList, setUserMessage }) => {
       </div>
     );
   }
-  if (loading) {
+  if (loading === true) {
     return (
       <div className="result container">
         <p>Loading...</p>
