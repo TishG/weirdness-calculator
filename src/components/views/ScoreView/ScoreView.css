@@ -17,7 +17,7 @@
   display: block;
 }
 
-.score-view .btn {
+.score-view button {
   text-transform: uppercase;
   width: 200px;
   margin: auto;
@@ -44,4 +44,9 @@
 
 .score-view .gifs-collection-card h1 {
   font-size: 1em;
+}
+
+.score-view .gifs-collection .gifs-collection-card img {
+  width: 200px;
+  max-height: 200px;
 }
