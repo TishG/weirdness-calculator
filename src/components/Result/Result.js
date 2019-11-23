@@ -10,10 +10,6 @@ import {
 import "./Result.css";
 
 const Result = ({ result, loading, addGIF, gifList, setUserMessage }) => {
-  console.log(loading);
-  if (result.length) {
-    console.log(result);
-  }
   const [weirdness, setWeirdness] = useState(0);
   const handleClick = () => {
     if (gifList.length === 5) {
